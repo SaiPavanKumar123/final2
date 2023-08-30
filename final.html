@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="orders.*" %>
+<% Product p=(Product)request.getAttribute("product"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>place order</title>
+ <style>
+
+        .inline{
+            display: inline-block;
+            margin-right: 20px; 
+        }
+.outline{
+            display: inline-block;
+            margin-right: 20px; 
+        }
+</style>
+</head>
+<body>
+
+<div style="background-color: blue;">
+<h3 style="color: white;"><p style="margin-left: 56px;">DELIVERY ADDRESS:</p>
+</div>
+
+
+<h4 style="margin-left: 90px;"><%= ((Address)request.getAttribute("address")).toString() %></h4>
+
+<div>
+<div style="background-color: blue;">
+<h3 style="color: white;"><p style="margin-left: 56px;"> ORDER SUMMARY:</p></h3>
+</div>
+<div >
+<img style="width:16%;height:22%" alt="product Image" src="<%=p.getImage()%>">
+<h4><p style="margin-left: 75px;"><%=p.getProductName() %></p></h4>
+<p><%=p.getDescription() %></p>
+<p><%=p.getPrice() %></p>
+</div>
+
+<div style="background-color: blue;">
+<h3 style="color: white;"><p style="margin-left: 56px;"> PRICE DETAILS:</p></h3>
+</div>
+<h3 align="left" class="inline">Price </h3>
+
+<h3 class="inline"  style="margin-left: 120px;" ><%=p.getPrice() %></h3><br>
+<h4 class="outline">Quantity </h4>
+ <h4 class="outline" style="margin-left:120px;"> 1</h4>
+<div align="center" style="margin-top:80px;"><button class="btn btn-primary">MAKE PAYMENT </button></div>
+</body>
+</html>
